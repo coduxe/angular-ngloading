@@ -39,7 +39,8 @@ angular.module('myApp', ['angular-ngloading'])
     angular.extend(ngLoadingProvider.defaults, {
       imageUrl: 'http://fakeimg.pl/200x200/?text=loading...', // set loading img
       backgroundColor: 'rgba(255, 255, 255, 0.5)', // any hex or rgba css value
-      onHttpRequest: true // trigger loading whenever a http request is sent if set to true
+      onHttpRequest: true, // trigger loading whenever a http request is sent if set to true
+      classes: "custom-class" // add your custom classes to the loading element (required custom css)
     });
   }]);
 ```
