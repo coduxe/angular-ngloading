@@ -1,62 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Angular NgLoading Demo</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angular NgLoading Demo</title>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="../src/angular-ngloading.css" >
+  <!-- Styles -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="../src/angular-ngloading.css" >
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body ng-app="AngularNgLoadingDemo" class="container" ng-controller="DemoCtrl">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body ng-app="AngularNgLoadingDemo" class="container" ng-controller="DemoCtrl">
 
-    <h2 class="page-header">Angular Loading Example</h2>
+  <h2 class="page-header">Angular Loading Example</h2>
 
-    <button class="btn btn-default" ng-click="makeHttpRequest()">Send Request</button>
+  <button class="btn btn-default" ng-click="makeHttpRequest()">Send Request</button>
 
-    <!-- scripts -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="../src/angular-ngloading.js"></script>
-    <script>
-      var app = angular.module('AngularNgLoadingDemo', ['angular-ngloading']);
+  <!-- scripts -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="../src/angular-ngloading.js"></script>
+  <script>
+  var app = angular.module('AngularNgLoadingDemo', ['angular-ngloading']);
 
-      // module configuration
-      app.config(['ngLoadingProvider', function(ngLoadingProvider) {
-        angular.extend(ngLoadingProvider.defaults, {
-          // imageUrl: 'http://fakeimg.pl/200x200/?text=loading...', // set loading gif
-          backgroundColor: 'rgba(255, 255, 255, 0.5)', // any hex or rgba css value
-          onHttpRequest: true // trigger loading whenever a http request is sent if set to true
-        });
-      }]);
+  // module configuration
+  app.config(['ngLoadingProvider', function(ngLoadingProvider) {
+    angular.extend(ngLoadingProvider.defaults, {
+      // imageUrl: 'http://fakeimg.pl/200x200/?text=loading...', // set loading gif
+      backgroundColor: 'rgba(255, 255, 255, 0.5)', // any hex or rgba css value
+      onHttpRequest: true, // trigger loading whenever a http request is sent if set to true
+      classes: "custom-class" // add your custom classes to the loading element (required custom css)
+    });
+  }]);
 
-      // controller usage
-      app.controller('DemoCtrl', ['$scope', '$http', 'ngLoading', '$timeout', function($scope, $http, ngLoading, $timeout) {
-        // Example 1: Default behaviour if onHttpRequest option
-        // is set to true
-        $scope.makeHttpRequest = function() {
-          // This will trigger the loader and will
-          // stop it when the response is recieved
-          $http.get('http://someserver.com');
-        };
+  // controller usage
+  app.controller('DemoCtrl', ['$scope', '$http', 'ngLoading', '$timeout', function($scope, $http, ngLoading, $timeout) {
+    // Example 1: Default behaviour if onHttpRequest option
+    // is set to true
+    $scope.makeHttpRequest = function() {
+      // This will trigger the loader and will
+      // stop it when the response is recieved
+      $http.get('http://someserver.com');
+    };
 
-        // Example 2: Trigger manually
-        // trigger manually
-        // stop the loader after 3 sec
-        ngLoading.start();
+    // Example 2: Trigger manually
+    // trigger manually
+    // stop the loader after 3 sec
+    ngLoading.start();
 
-        $timeout(function() {
-          ngLoading.stop();
-        }, 3000);
-      }]);
-    </script>
-  </body>
+    $timeout(function() {
+      ngLoading.stop();
+    }, 3000);
+  }]);
+  </script>
+</body>
 </html>
