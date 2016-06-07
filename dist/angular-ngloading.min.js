@@ -1,6 +1,6 @@
 /**
  * angular-ngloading
- * @version v1.0.0
+ * @version v1.0.1
  * @link https://github.com/coduxe/angular-ngloading
  * @author Coduxe, https://github.com/coduxe
  * @license MIT License, http://www.opensource.org/licenses/MIT
