@@ -52,11 +52,9 @@ angular.module('myApp', ['angular-ngloading'])
 angular.module('myApp', ['angular-ngloading'])
   .config(['ngLoadingProvider', function(ngLoadingProvider) {
     angular.extend(ngLoadingProvider.defaults, { onHttpRequest: false });
-  }]);
-
+  }])
   .controller('DemoCtrl', ['ngLoading', '$timeout', function(ngLoading, $timeout) {
     ngLoading.start();
-
     $timeout(function() {
       ngLoading.stop();
     }, 3000);
