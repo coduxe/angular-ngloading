@@ -12,5 +12,5 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: #fff url('angular-ngloading.gif') center center no-repeat;
+  background: rgba(255, 255, 255, 0.9) url('angular-ngloading.gif') center center no-repeat;
 }

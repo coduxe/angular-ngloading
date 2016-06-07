@@ -15,7 +15,7 @@ $ bower install angular-ngloading --save
 
 >
 ``` html
-<link rel="stylesheet" href=".bower_components/angular-ngloading/dist/angular-ngloading.min.css" >
+<link rel="stylesheet" href="bower_components/angular-ngloading/dist/angular-ngloading.min.css" >
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-ngloading/dist/angular-ngloading.min.js"></script>
 ```
