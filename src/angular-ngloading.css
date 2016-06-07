@@ -1,0 +1,8 @@
+#ngloading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #fff url('angular-ngloading.gif') center center no-repeat;
+}
