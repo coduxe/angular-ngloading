@@ -1,6 +1,6 @@
 /**
  * angular-ngloading
- * @version v1.0.1
+ * @version v1.0.2
  * @link https://github.com/coduxe/angular-ngloading
  * @author Coduxe, https://github.com/coduxe
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -39,7 +39,8 @@ angular.module("angular-ngloading", [])
   this.defaults = {
     imageUrl: null,
     backgroundColor: null,
-    onHttpRequest: true
+    onHttpRequest: true,
+    classes: ""
   };
 
   this.id = 'ngloading';
@@ -75,7 +76,7 @@ angular.module("angular-ngloading", [])
         self.increase();
 
         if (self.getLoadingCount() === 1) {
-          self.body.append('<div id="' + self.id + '" style="' + self.parseStyles() + '"></div>');
+          self.body.append('<div id="' + self.id + '" class="' + self.defaults.classes + '" style="' + self.parseStyles() + '"></div>');
         }
       },
       stop: function() {
